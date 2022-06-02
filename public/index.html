@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <title>PAC-WORLD</title>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+
+    <!-- Allow page to be saved as web app on iOS. -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Hide status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icon used for iOS Web App -->
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/ios_icon.png" />
+
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+    <link rel="stylesheet" href="./assets/style/index.css">
+
+
+</head>
+
+<body>
+    <div class="main" id="signmenu" style="display: none;">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <label class="label" for="chk" aria-hidden="true">Sign up</label>
+            <input type="text" id="signupname" name="txt" placeholder="User name">
+            <input type="password" id="signuppassword" name="pswd" placeholder="Password">
+            <button onclick="signup()">Sign up</button>
+        </div>
+        <div class="login">
+            <label class="label" for="chk" aria-hidden="true">Login</label>
+            <input type="text" id="loginname" name="txt" placeholder="User name">
+            <input type="password" id="loginpassword" name="pswd" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+    <div class="main" id="mainmenu" style="display: none;">
+        <h1>P2E PAC-WORLD</h1>
+        <p>(MAIN MENU)</p>
+        <br>
+        <button onclick="play()">PLAY</button>
+        <button onclick="showearningmanager()">EARNING MANAGER</button>
+        <button onclick="showleaderboard()">LEADERBOARD</button>
+        <button onclick="showhistory()">HISTORY</button>
+        <button onclick="signout()">SIGN OUT</button>
+    </div>
+    <div class="main" id="earningmanager" style="display: none;">
+        <h1>P2E PAC-WORLD</h1>
+        <h3>(EARNING MANAGER)</h3>
+        <br>
+        <h5>Claim amount of token earned = $0</h5>
+        <h5>In game currency balance = $0</h5>
+        <button onclick="showmainmenu()">BACK</button>
+    </div>
+    <div class="main" id="leaderboard" style="display: none;">
+        <h1>P2E PAC-WORLD</h1>
+        <p>(LEADERBOARD)</p>
+        <br>
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <ul>
+                <li title="Daily"><label for="tab1" role="button"><span>Daily</span></label></li>
+                <li title="Weekly"><label for="tab2" role="button"><span>Weekly</span></label></li>
+                <li title="Monthly"><label for="tab3" role="button"><span>Monthly</span></label></li>
+            </ul>
+            <div class="content" style="color: black;">
+                <section>
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Username</th>
+                                    <th>HighScore</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="dailyTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section>
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Username</th>
+                                    <th>HighScore</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="weeklyTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section>
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Username</th>
+                                    <th>HighScore</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="monthlyTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <button onclick="showmainmenu()">BACK</button>
+    </div>
+    <div class="main" id="history" style="display: none;">
+        <h1>P2E PAC-WORLD</h1>
+        <p>(HISTORY)</p>
+        <br>
+        <div class="tabs">
+            <input type="radio" id="tab4" name="tab-control">
+            <ul>
+                <li title="Games"><label for="tab4" role="button"><span>All Your Games</span></label></li>
+            </ul>
+            <div class="content" style="color: black;">
+                <section>
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Score</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="historyTable">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <button onclick="showmainmenu()">BACK</button>
+    </div>
+    <div id="board" style="display: block;">
+        <div style='font-family: ArcadeR'> </div>
+        <canvas id='canvas'>
+            <div id="canvas-warning">Your browser does not support HTML Canvas. Please upgrade!</div>
+        </canvas>
+        <canvas id='atlas' style="display:none"></canvas>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
